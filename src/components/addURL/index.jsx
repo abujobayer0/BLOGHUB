@@ -19,7 +19,7 @@ const AddUrl = () => {
           placeholder="merakiui.com"
           className="block w-full rounded-l-none rtl:rounded-l-lg rtl:rounded-r-none placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
         />{" "}
-        <button className="px-4 mx-2 py-2 rounded  text-2xl text-gray-600 transition-colors duration-200 border font-bold  sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+        <button className="px-3 mx-2 py-2.5 rounded  text-2xl text-gray-600 transition-colors duration-200 border font-bold  sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
           +
         </button>
       </div>
