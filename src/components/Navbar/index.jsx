@@ -9,12 +9,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
+            className="flex items-center  py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
           >
             <img className="w-auto h-10 sm:h-7" src={logo} alt="" />
             BLOGHUB
           </a>
-
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
