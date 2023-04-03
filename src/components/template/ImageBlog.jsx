@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ImageBlog = () => {
+const ImageBlog = ({ img }) => {
+  const [isFullSize, setIsFullSize] = useState(false);
+
+  const handleImageClick = () => {
+    setIsFullSize(!isFullSize);
+  };
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container  py-10 mx-auto">
         <div className="mt-8 lg:-mx-6 lg:flex lg:items-center">
           <img
-            className="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96"
-            src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
+              isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
+            }`}
+            src={URL.createObjectURL(img)}
             alt=""
+            onClick={handleImageClick}
           />
 
           <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">

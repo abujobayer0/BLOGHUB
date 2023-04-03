@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import ImageBlog from "../template/ImageBlog";
 
 const FileUpload = () => {
+  const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [dragging, setDragging] = useState(false);
 
@@ -27,6 +29,7 @@ const FileUpload = () => {
 
   const handleFileUpload = (file) => {
     setFileName(file.name);
+    setFile(file);
     // Implement your file upload logic here
   };
 
@@ -55,7 +58,7 @@ const FileUpload = () => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-8 h-8 text-gray-500 dark:text-gray-400"
         >
@@ -71,18 +74,23 @@ const FileUpload = () => {
         </h2>
 
         <p className="mt-2 text-xs tracking-wide text-gray-500 dark:text-gray-400">
-          {fileName
-            ? fileName
-            : "Upload or drag & drop your file (SVG, PNG, JPG, or GIF)"}
+          {fileName ? fileName : "Upload or drag & drop your file (PNG or JPG)"}
         </p>
 
         <input
           id="dropzone-file"
           type="file"
           className="hidden"
+          accept="image/*"
           onChange={handleFileInput}
         />
       </label>
+
+      {file && (
+        <div>
+          <ImageBlog img={file} />
+        </div>
+      )}
     </div>
   );
 };
