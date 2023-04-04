@@ -1,6 +1,8 @@
 import { useState } from "react";
 import logo from "../../assets/logo.png";
 import ButtonGroup from "../buttonGroup";
+import { NavLink } from "react-router-dom";
+import DropDown from "./DropDown";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -9,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="flex items-center  py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
+            className="flex items-center  py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:pr-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
           >
             <img className="w-auto h-10 sm:h-7" src={logo} alt="" />
             BLOGHUB
@@ -65,24 +67,30 @@ const Navbar = () => {
            }`}
         >
           <div className="flex flex-col px-2  -mx-4 md:flex-row font-semibold  md:mx-10 md:py-0">
-            <a
-              href="#"
-              className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
-            >
-              About
-            </a>
-            <a
-              href="#"
-              className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
-            >
-              Contact
-            </a>
+            <NavLink to={"/"}>
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
+              >
+                Home
+              </a>
+            </NavLink>
+            <NavLink to={"/home/about"}>
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
+              >
+                About
+              </a>
+            </NavLink>
+            <NavLink to={"/home/contact"}>
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 gap-x-3 hover:bg-gray-100"
+              >
+                Contact
+              </a>
+            </NavLink>
           </div>{" "}
           <ButtonGroup />
           <div className="flex-col ">
@@ -109,6 +117,7 @@ const Navbar = () => {
               />
             </div>
           </div>
+          <DropDown />
         </div>
       </div>
     </nav>

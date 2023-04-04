@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.active a {
+  color: rgb(65, 147, 255);
+}
+.active button {
+  color: rgb(65, 147, 255);
+}

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-const AddUrl = () => {
-  const [urls, setUrls] = useState([{ value: "" }]);
-
+const AddUrl = ({ urls, setUrls }) => {
   const handleUrlChange = (index, event) => {
     const values = [...urls];
     values[index].value = event.target.value;
@@ -12,6 +10,7 @@ const AddUrl = () => {
   const handleAddUrl = () => {
     const values = [...urls];
     values.push({ value: "" });
+    console.log(urls);
     setUrls(values);
   };
 
@@ -30,7 +29,6 @@ const AddUrl = () => {
             </p>
             <input
               type="text"
-              placeholder="ex : bloghub.com"
               className="block w-full rounded-l-none rtl:rounded-l-lg rtl:rounded-r-none placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
               value={url.value}
               onChange={(event) => handleUrlChange(index, event)}

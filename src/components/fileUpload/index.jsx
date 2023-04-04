@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import ImageBlog from "../template/ImageBlog";
 
-const FileUpload = () => {
-  const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("");
-  const [dragging, setDragging] = useState(false);
-
+const FileUpload = ({
+  file,
+  setDragging,
+  setFile,
+  dragging,
+  fileName,
+  setFileName,
+}) => {
   const handleDragEnter = (e) => {
     e.preventDefault();
     setDragging(true);
@@ -85,12 +88,6 @@ const FileUpload = () => {
           onChange={handleFileInput}
         />
       </label>
-
-      {file && (
-        <div>
-          <ImageBlog img={file} />
-        </div>
-      )}
     </div>
   );
 };

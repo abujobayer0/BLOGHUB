@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextBlog = () => {
+const TextBlog = ({ title, article }) => {
   return (
     <div className="w-full mx-auto px-8 py-4  bg-white rounded-lg shadow-md dark:bg-gray-800">
       <div className="">
@@ -11,14 +11,9 @@ const TextBlog = () => {
             tabIndex="0"
             role="link"
           >
-            Accessibility tools for designers and developers
+            {title}
           </a>
-          <p className="mt-2 text-gray-600 dark:text-gray-300">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos
-            enim reprehenderit nisi, accusamus delectus nihil quis facere in
-            modi ratione libero!
-          </p>
+          <p className="mt-2 text-gray-600 dark:text-gray-300">{article}</p>
         </div>
 
         <div className="flex items-center justify-between mt-4">

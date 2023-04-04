@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 
-const ImageBlog = ({ img }) => {
+const ImageBlog = ({ img, title, article, preview }) => {
   const [isFullSize, setIsFullSize] = useState(false);
 
-  const handleImageClick = () => {
-    setIsFullSize(!isFullSize);
-  };
-
+  console.log(img);
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container  py-10 mx-auto">
         <div className="mt-8 lg:-mx-6 lg:flex lg:items-center">
-          <img
-            className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
-              isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
-            }`}
-            src={URL.createObjectURL(img)}
-            alt=""
-            onClick={handleImageClick}
-          />
+          {preview ? (
+            <img
+              className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
+                isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
+              }`}
+              src={URL.createObjectURL(img)}
+              alt=""
+            />
+          ) : (
+            <img
+              className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
+                isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
+              }`}
+              src={`http://localhost:8000/${img}`}
+              alt=""
+            />
+          )}
 
           <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
             <a
@@ -27,12 +33,11 @@ const ImageBlog = ({ img }) => {
               tabIndex="0"
               role="link"
             >
-              Accessibility tools for designers and developers
+              {title && title}
             </a>
 
             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-              veritatis sint autem nesciunt, laudantium quia tempore delect
+              {article.length > 700 ? article.slice(0, 700) + "..." : article}{" "}
             </p>
 
             <a
