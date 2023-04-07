@@ -6,6 +6,7 @@ import TextBlog from "../template/TextBlog";
 import { POST } from "../../apis";
 import { Toaster, toast } from "react-hot-toast";
 import Navbar from "../Navbar";
+import { Navigate, redirect } from "react-router";
 const BlogPost = () => {
   const [article, setArticle] = useState("");
   const [title, setTitle] = useState("");
@@ -119,7 +120,7 @@ const BlogPost = () => {
           <div className=" container mx-auto mt-8">
             <label
               htmlFor="Description"
-              class="block text-sm text-gray-500 dark:text-gray-300"
+              className="block text-sm text-gray-500 dark:text-gray-300"
             >
               Title
             </label>
@@ -132,7 +133,7 @@ const BlogPost = () => {
             ></textarea>
             <label
               htmlFor="Description"
-              class="block text-sm text-gray-500 dark:text-gray-300"
+              className="block text-sm text-gray-500 dark:text-gray-300"
             >
               Article
             </label>

@@ -20,7 +20,9 @@ const Home = () => {
         <div className="container flex flex-col">
           {datas?.map((blog, indx) => (
             <>
-              {blog ? (
+              {blog.length === 0 ? (
+                <LoaderHome />
+              ) : (
                 <ImageBlog
                   key={indx}
                   id={blog._id}
@@ -28,8 +30,6 @@ const Home = () => {
                   img={blog.image1}
                   title={blog.title}
                 />
-              ) : (
-                <LoaderHome />
               )}
             </>
           ))}

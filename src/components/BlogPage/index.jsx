@@ -27,8 +27,8 @@ const Blog = () => {
                   alt=""
                 />
               ) : (
-                <div class="w-full ">
-                  <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
+                <div className="w-full ">
+                  <div className="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
                 </div>
               )}
 
@@ -38,7 +38,7 @@ const Blog = () => {
                     Want to know
                   </p>
                 ) : (
-                  <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                  <p className="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 )}
 
                 {title ? (
@@ -46,7 +46,7 @@ const Blog = () => {
                     {title}
                   </h1>
                 ) : (
-                  <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                  <h1 className="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
                 )}
 
                 {article ? (
@@ -54,7 +54,7 @@ const Blog = () => {
                     {article}
                   </p>
                 ) : (
-                  <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                  <p className="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 )}
 
                 <div className="flex items-center mt-6">
