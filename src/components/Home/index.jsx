@@ -4,7 +4,7 @@ import ImageBlog from "../template/ImageBlog";
 const Home = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/articles")
+    fetch("https://blog-site-server-api-l5cu.onrender.com/articles")
       .then((response) => response.json())
       .then((data) => setDatas(data))
       .catch((error) => console.error(error));

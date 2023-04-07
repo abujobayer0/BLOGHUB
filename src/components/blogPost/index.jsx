@@ -21,7 +21,7 @@ const BlogPost = () => {
   const handlePost = async (e) => {
     e.preventDefault();
     try {
-      await fetch("http://localhost:8000/articles", {
+      await fetch("https://blog-site-server-api-l5cu.onrender.com/articles", {
         method: "POST",
         body: formData,
       })

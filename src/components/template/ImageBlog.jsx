@@ -21,7 +21,7 @@ const ImageBlog = ({ img, title, article, preview }) => {
               className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
                 isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
               }`}
-              src={`http://localhost:8000/${img}`}
+              src={`https://blog-site-server-api-l5cu.onrender.com/${img}`}
               alt=""
             />
           )}
