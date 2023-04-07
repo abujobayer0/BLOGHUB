@@ -18,31 +18,43 @@ const ImageBlog = ({ img, title, article, id, preview }) => {
               alt=""
             />
           ) : (
-            <img
-              className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
-                isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
-              }`}
-              src={`https://blog-site-server-api-l5cu.onrender.com/${img}`}
-              alt=""
-            />
+            <>
+              {img ? (
+                <img
+                  className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
+                    isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
+                  }`}
+                  src={`https://blog-site-server-api-l5cu.onrender.com/${img}`}
+                  alt=""
+                />
+              ) : (
+                <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
+              )}
+            </>
           )}
 
           <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
             <Link to={`/articles/${id}`}>
-              <a
-                href="#"
-                className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
-                tabIndex="0"
-                role="link"
-              >
-                {title && title}
-              </a>
+              {title ? (
+                <a
+                  href="#"
+                  className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
+                  tabIndex="0"
+                  role="link"
+                >
+                  {title && title}
+                </a>
+              ) : (
+                <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+              )}
             </Link>
-
-            <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-              {article.length > 700 ? article.slice(0, 700) + "..." : article}{" "}
-            </p>
-
+            {article ? (
+              <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
+                {article.length > 700 ? article.slice(0, 700) + "..." : article}{" "}
+              </p>
+            ) : (
+              <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            )}
             <Link to={`/articles/${id}`}>
               <button
                 href=""

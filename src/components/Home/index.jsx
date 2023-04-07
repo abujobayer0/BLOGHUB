@@ -18,13 +18,24 @@ const Home = () => {
       <div className="w-full mx-auto flex flex-col justify-center px-6 items-center">
         <div className="container">
           {recentPost?.map((blog, indx) => (
-            <ImageBlog
-              key={indx}
-              id={blog._id}
-              article={blog.article}
-              img={blog.image1}
-              title={blog.title}
-            />
+            <>
+              {blog ? (
+                <ImageBlog
+                  key={indx}
+                  id={blog._id}
+                  article={blog.article}
+                  img={blog.image1}
+                  title={blog.title}
+                />
+              ) : (
+                <div class="w-full ">
+                  <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
+
+                  <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                  <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+              )}
+            </>
           ))}
         </div>
       </div>

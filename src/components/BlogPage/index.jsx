@@ -20,23 +20,43 @@ const Blog = () => {
         <div className="container px-6 py-10 mx-auto">
           <div className="lg:flex lg:-mx-6">
             <div className="lg:w-3/4 lg:px-6">
-              <img
-                className="object-cover object-center w-full h-96 xl:h-[28rem] rounded-xl"
-                src={`https://blog-site-server-api-l5cu.onrender.com/${image1}`}
-                alt=""
-              />
+              {image1 ? (
+                <img
+                  className="object-cover object-center w-full h-96 xl:h-[28rem] rounded-xl"
+                  src={`https://blog-site-server-api-l5cu.onrender.com/${image1}`}
+                  alt=""
+                />
+              ) : (
+                <div class="w-full ">
+                  <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
+                </div>
+              )}
 
               <div>
-                <p className="mt-6 text-sm text-blue-500 uppercase">
-                  Want to know
-                </p>
+                {image1 ? (
+                  <p className="mt-6 text-sm text-blue-500 uppercase">
+                    Want to know
+                  </p>
+                ) : (
+                  <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                )}
 
-                <h1 className="max-w-lg mt-4 text-2xl font-semibold leading-tight text-gray-800 dark:text-white">
-                  {title}
-                </h1>
-                <p className="mt-2 text-gray-600 dark:text-gray-300">
-                  {article}
-                </p>
+                {title ? (
+                  <h1 className="max-w-lg mt-4 text-2xl font-semibold leading-tight text-gray-800 dark:text-white">
+                    {title}
+                  </h1>
+                ) : (
+                  <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                )}
+
+                {article ? (
+                  <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    {article}
+                  </p>
+                ) : (
+                  <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                )}
+
                 <div className="flex items-center mt-6">
                   <img
                     className="object-cover object-center w-10 h-10 rounded-full"
