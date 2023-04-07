@@ -4,6 +4,7 @@ import AddUrl from "../addURL/index";
 import ImageBlog from "../template/ImageBlog";
 import TextBlog from "../template/TextBlog";
 import { POST } from "../../apis";
+import { Toaster, toast } from "react-hot-toast";
 const BlogPost = () => {
   const [article, setArticle] = useState("");
   const [title, setTitle] = useState("");
@@ -15,7 +16,7 @@ const BlogPost = () => {
   const formData = new FormData();
   formData.append("title", title);
   formData.append("article", article);
-  formData.append("urls", JSON.stringify(urls.map((url) => url.value))); // pass entire urls array as JSON string
+  formData.append("urls", JSON.stringify(urls.map((url) => url.value)));
   formData.append("image1", file);
   const handlePost = async (e) => {
     e.preventDefault();
@@ -25,7 +26,43 @@ const BlogPost = () => {
         body: formData,
       })
         .then((response) => response.json())
-        .then((data) => console.log(data))
+        .then((data) =>
+          toast.custom((t) => (
+            <div
+              className={`${
+                t.visible ? "animate-enter" : "animate-leave"
+              } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            >
+              <div className="flex-1 w-0 p-4">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 pt-0.5">
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={URL.createObjectURL(file)}
+                      alt=""
+                    />
+                  </div>
+                  <div className="ml-3 flex-1">
+                    <p className="text-sm font-medium text-gray-900">
+                      Successfully Posted on BLOGHUB.
+                    </p>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Sure! 8:30pm works great!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex border-l border-gray-200">
+                <button
+                  onClick={() => toast.dismiss(t.id)}
+                  className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          ))
+        )
         .catch((error) => console.error(error));
     } catch (err) {
       console.log(err);
@@ -33,11 +70,35 @@ const BlogPost = () => {
       // Any final cleanup code can be added here
       setArticle("");
       setTitle("");
+      setFile("");
       setUrls([{ value: "" }]);
+    }
+  };
+  const handleDrift = async () => {
+    const formDataObject = {
+      title,
+      article,
+      urls: urls.map((url) => url.value),
+      fileName,
+    };
+
+    try {
+      // Get existing data from localStorage
+      const existingData = JSON.parse(localStorage.getItem("formData")) || [];
+      // Merge the new form data with the existing data
+      const newData = [...existingData, formDataObject];
+      // Save the new data to localStorage
+      localStorage.setItem("formData", JSON.stringify(newData));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // Any final cleanup code can be added here
     }
   };
   return (
     <form onSubmit={handlePost}>
+      {" "}
+      <Toaster />
       <div className="my-8 w-full px-6">
         <FileUpload
           file={file}
@@ -103,7 +164,10 @@ const BlogPost = () => {
               </svg>
               <span className="mx-1">POST BLOG</span>
             </button>
-            <button className="px-4 py-2 font-medium text-gray-600 transition-colors duration-200 sm:px-6 dark:hover:bg-gray-800 flex border rounded  dark:text-gray-300 hover:bg-gray-100">
+            <button
+              onClick={handleDrift}
+              className="px-4 py-2 cursor-pointer font-medium text-gray-600 transition-colors duration-200 sm:px-6 dark:hover:bg-gray-800 flex border rounded  dark:text-gray-300 hover:bg-gray-100"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
