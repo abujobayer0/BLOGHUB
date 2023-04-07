@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ImageBlog from "../template/ImageBlog";
+import Navbar from "../Navbar";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -12,18 +13,21 @@ const Home = () => {
   console.log(datas);
   const recentPost = datas.reverse();
   return (
-    <div className="w-full mx-auto flex flex-col justify-center px-6 items-center">
-      <div className="container">
-        {recentPost?.map((blog, indx) => (
-          <ImageBlog
-            key={indx}
-            article={blog.article}
-            img={blog.image1}
-            title={blog.title}
-          />
-        ))}
+    <>
+      <Navbar />
+      <div className="w-full mx-auto flex flex-col justify-center px-6 items-center">
+        <div className="container">
+          {recentPost?.map((blog, indx) => (
+            <ImageBlog
+              key={indx}
+              article={blog.article}
+              img={blog.image1}
+              title={blog.title}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

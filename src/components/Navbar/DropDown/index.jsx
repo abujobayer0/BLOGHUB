@@ -5,7 +5,7 @@ const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative hidden lg:inline-block">
       {/* Dropdown toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
