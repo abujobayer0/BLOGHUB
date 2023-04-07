@@ -47,9 +47,7 @@ const BlogPost = () => {
                     <p className="text-sm font-medium text-gray-900">
                       Successfully Posted on BLOGHUB.
                     </p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Sure! 8:30pm works great!
-                    </p>
+                    <p className="mt-1 text-sm text-gray-500">Yayy man..</p>
                   </div>
                 </div>
               </div>
