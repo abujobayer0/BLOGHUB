@@ -12,13 +12,13 @@ const Home = () => {
       .catch((error) => console.error(error));
   }, []);
   console.log(datas);
-  const recentPost = datas.reverse();
+
   return (
     <>
       <Navbar />
       <div className="w-full mx-auto flex flex-col justify-center px-6 items-center">
-        <div className="container">
-          {recentPost?.map((blog, indx) => (
+        <div className="container flex flex-col">
+          {datas?.map((blog, indx) => (
             <>
               {blog ? (
                 <ImageBlog
