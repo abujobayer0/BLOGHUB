@@ -20,6 +20,7 @@ const Home = () => {
           {recentPost?.map((blog, indx) => (
             <ImageBlog
               key={indx}
+              id={blog._id}
               article={blog.article}
               img={blog.image1}
               title={blog.title}

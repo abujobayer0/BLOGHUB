@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ImageBlog = ({ img, title, article, preview }) => {
+const ImageBlog = ({ img, title, article, id, preview }) => {
   const [isFullSize, setIsFullSize] = useState(false);
 
   console.log(img);
@@ -27,25 +28,29 @@ const ImageBlog = ({ img, title, article, preview }) => {
           )}
 
           <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
-            <a
-              href="#"
-              className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
-              tabIndex="0"
-              role="link"
-            >
-              {title && title}
-            </a>
+            <Link to={`/articles/${id}`}>
+              <a
+                href="#"
+                className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
+                tabIndex="0"
+                role="link"
+              >
+                {title && title}
+              </a>
+            </Link>
 
             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
               {article.length > 700 ? article.slice(0, 700) + "..." : article}{" "}
             </p>
 
-            <a
-              href="#"
-              className="inline-block mt-2 text-blue-500 underline hover:text-blue-400"
-            >
-              Read more
-            </a>
+            <Link to={`/articles/${id}`}>
+              <button
+                href=""
+                className="inline-block mt-2 text-blue-500 underline hover:text-blue-400"
+              >
+                Read more
+              </button>
+            </Link>
 
             <div className="flex items-center mt-6">
               <img

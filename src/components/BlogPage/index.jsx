@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const Blog = () => {
+  const { id } = useParams();
+  const [blog, setBlog] = useState([]);
+  useEffect(() => {
+    fetch("https://blog-site-server-api-l5cu.onrender.com/articles")
+      .then((response) => response.json())
+      .then((data) => setBlog(data.find((i) => i._id === id)))
+      .catch((error) => console.error(error));
+  }, []);
+  console.log(blog);
+  const { image1, title, article } = blog;
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
@@ -8,7 +19,7 @@ const Blog = () => {
           <div className="lg:w-3/4 lg:px-6">
             <img
               className="object-cover object-center w-full h-80 xl:h-[28rem] rounded-xl"
-              src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              src={image1}
               alt=""
             />
 
@@ -18,9 +29,9 @@ const Blog = () => {
               </p>
 
               <h1 className="max-w-lg mt-4 text-2xl font-semibold leading-tight text-gray-800 dark:text-white">
-                What do you want to know about UI
+                {title}
               </h1>
-
+              <p className="mt-2 text-gray-600 dark:text-gray-300">{article}</p>
               <div className="flex items-center mt-6">
                 <img
                   className="object-cover object-center w-10 h-10 rounded-full"
