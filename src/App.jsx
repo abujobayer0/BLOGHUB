@@ -5,6 +5,7 @@ import BlogPost from "./components/blogPost";
 import Home from "./components/Home";
 import Drift from "./components/Drift";
 import Admin from "./admin";
+import LoaderHome from "./components/loaderHome";
 
 const App = () => {
   return (
