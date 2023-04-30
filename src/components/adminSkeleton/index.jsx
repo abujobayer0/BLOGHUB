@@ -1,17 +1,7 @@
 import React from "react";
 
 const AdminSkeleton = () => {
-  const skeleton = [
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-    "hello",
-  ];
+  const skeleton = ["hello", "hello", "hello", "hello", "hello", "hello"];
   return (
     <div>
       {" "}
@@ -120,12 +110,9 @@ const AdminSkeleton = () => {
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">
                             <div className="flex items-center gap-x-2">
-                              <img
-                                className="object-cover w-10 h-10 rounded-full"
-                                src={`https://images.pexels.com/photos/3756616/pexels-photo-3756616.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`}
-                                alt=""
-                              />
-                              <div>
+                              <p class="w-10 h-10 bg-gray-200 rounded-full dark:bg-gray-700 ring-4 ring-gray-300 dark:ring-gray-600"></p>
+
+                              <div className="px-4">
                                 <h2 className="font-medium text-gray-800 dark:text-white ">
                                   user
                                 </h2>
@@ -148,12 +135,18 @@ const AdminSkeleton = () => {
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                           posts
                         </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                          gmail
+                        </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-2">
-                            <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60"></p>
+                            <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
+                              Blog
+                            </p>
 
-                            <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60"></p>
+                            <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60">
+                              User
+                            </p>
                           </div>
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
