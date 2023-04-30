@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+
 const ImageBlog = ({ img, title, article, id, preview }) => {
   const [isFullSize, setIsFullSize] = useState(false);
-  const image = `https://blog-site-server-api-l5cu.onrender.com/${img}`;
+
   console.log(img);
   return (
     <section className="bg-white dark:bg-gray-900">
