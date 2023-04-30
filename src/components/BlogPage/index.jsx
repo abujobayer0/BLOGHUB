@@ -22,7 +22,8 @@ const Blog = () => {
             <div className="lg:w-3/4 lg:px-6">
               {image1 ? (
                 <img
-                  className="object-cover object-center  xl:h-[28rem] rounded-xl"
+                  className="object-cover object-center  
+                   rounded-xl"
                   src={`https://blog-site-server-api-l5cu.onrender.com/${image1}`}
                   alt=""
                 />
