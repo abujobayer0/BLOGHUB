@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const ImageBlog = ({ img, title, article, id, preview }) => {
   const [isFullSize, setIsFullSize] = useState(false);
-
+  const image = `https://blog-site-server-api-l5cu.onrender.com/${img}`;
   console.log(img);
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -16,17 +17,23 @@ const ImageBlog = ({ img, title, article, id, preview }) => {
               }`}
               src={URL.createObjectURL(img)}
               alt=""
+              loading="lazy"
             />
           ) : (
             <>
               {img ? (
-                <img
-                  className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
-                    isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
-                  }`}
-                  src={`https://blog-site-server-api-l5cu.onrender.com/${img}`}
-                  alt=""
-                />
+                <>
+                  <img
+                    className={`object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96 ${
+                      isFullSize ? "fixed top-0 left-0 w-full h-full z-50" : ""
+                    }`}
+                    src={`https://blog-site-server-api-l5cu.onrender.com/${img}`}
+                    alt=""
+                    width={200}
+                    height={200}
+                    loading="lazy"
+                  />
+                </>
               ) : (
                 <div className="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
               )}

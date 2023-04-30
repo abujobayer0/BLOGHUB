@@ -5,10 +5,15 @@ import LoaderHome from "../loaderHome";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetch("https://blog-site-server-api-l5cu.onrender.com/articles")
       .then((response) => response.json())
-      .then((data) => setDatas(data))
+      .then((data) => {
+        setDatas(data);
+        setIsLoading(false);
+      })
       .catch((error) => console.error(error));
   }, []);
   console.log(datas);
@@ -18,11 +23,11 @@ const Home = () => {
       <Navbar />
       <div className="w-full mx-auto flex flex-col justify-center px-6 items-center">
         <div className="container flex flex-col">
-          {datas?.map((blog, indx) => (
+          {isLoading ? (
+            <LoaderHome />
+          ) : (
             <>
-              {blog.length === 0 ? (
-                <LoaderHome />
-              ) : (
+              {datas?.map((blog, indx) => (
                 <ImageBlog
                   key={indx}
                   id={blog._id}
@@ -30,9 +35,9 @@ const Home = () => {
                   img={blog.image1}
                   title={blog.title}
                 />
-              )}
+              ))}
             </>
-          ))}
+          )}
         </div>
       </div>
     </>
